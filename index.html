@@ -3,86 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Diwali Wishes | Jainam</title>
-
+<title>Royal Diwali Wishes</title>
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;min-height:100vh;
- font-family:Georgia,serif;
- color:#fff2cf;text-align:center;
- background:radial-gradient(ellipse at top,#54216f,#180b30 65%,#090515);
- overflow-x:hidden;
+ margin:0;min-height:100vh;text-align:center;
+ font-family:Georgia,serif;color:#fff0d0;
+ background:radial-gradient(ellipse at top,#58256e,#1b0b32 65%,#090515);
+ overflow-x:hidden
 }
 canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .page{position:relative;z-index:1;max-width:650px;margin:auto;padding:25px 18px 50px}
-.top{color:#ffd76c;letter-spacing:5px;font-size:12px;margin-top:15px}
-h1{
- font-size:clamp(35px,9vw,58px);color:#ffdc83;
- text-shadow:0 0 15px #ffae38,0 0 35px #a34cce;
- margin:15px 0;
-}
-.subtitle{color:#f8dca8;line-height:1.8}
-.diya{font-size:65px;filter:drop-shadow(0 0 15px #ffb12b);animation:glow 2s infinite alternate}
-@keyframes glow{to{filter:drop-shadow(0 0 30px #ffb12b)}}
+.top{color:#ffd77a;letter-spacing:4px;font-size:12px;margin-top:15px}
+h1{font-size:clamp(36px,9vw,58px);color:#ffdc83;text-shadow:0 0 20px #ffae38;margin:15px 0}
+.diya{font-size:65px;filter:drop-shadow(0 0 18px #ffb12b);animation:glow 2s infinite alternate}
+@keyframes glow{to{filter:drop-shadow(0 0 32px #ffb12b)}}
 .card{
- margin:25px auto;padding:26px 20px;
+ margin:25px auto;padding:25px 20px;
  border:1px solid #d8ad60;border-radius:22px;
- background:linear-gradient(145deg,#ffffff12,#ffffff05);
+ background:linear-gradient(145deg,#ffffff15,#ffffff05);
  box-shadow:0 0 35px #b77b3c25;
- backdrop-filter:blur(8px);
+ backdrop-filter:blur(8px)
 }
 input{
  width:100%;padding:15px;border-radius:12px;
  border:1px solid #d6aa5e;background:#fffaf0;
  font-size:16px;text-align:center;outline:none;
- margin:12px 0;color:#321a35;
+ margin:10px 0;color:#321a35
 }
 button{
  border:0;border-radius:30px;padding:14px 22px;
  font-size:15px;font-weight:bold;cursor:pointer;
  margin:7px;background:linear-gradient(120deg,#ffe39a,#d99a36);
- color:#321a25;box-shadow:0 4px 18px #d99a3650;
+ color:#321a25
 }
-button.secondary{background:transparent;border:1px solid #e6c37e;color:#ffe7ae}
-button:hover{transform:translateY(-2px)}
+.secondary{background:transparent;border:1px solid #e6c37e;color:#ffe7ae}
 .hidden{display:none!important}
-.name{
- font-size:clamp(30px,8vw,46px);color:#ffe29b;
- margin:20px 0;text-shadow:0 0 20px #ffbb54;
- overflow-wrap:anywhere;
-}
-.message{font-size:17px;line-height:1.9;color:#ffeac5}
 .gold{color:#ffd477}
-.letter{
- text-align:left;line-height:1.9;padding:20px;
- background:#fff1d7;color:#56304b;border-radius:12px;
- margin-top:15px;
+.name{font-size:clamp(30px,8vw,46px);color:#ffe29b;margin:20px 0;overflow-wrap:anywhere;text-shadow:0 0 20px #ffbb54}
+.message{font-size:17px;line-height:1.9;color:#ffeac5}
+.signature{
+ font-size:clamp(21px,5vw,28px);
+ font-style:italic;font-weight:bold;
+ color:#ffdc88;text-shadow:0 0 12px #ffb94a;
+ margin:15px 0;overflow-wrap:anywhere
 }
+.small{font-size:12px;color:#d5b8d8}
+.letter{text-align:left;line-height:1.9;padding:20px;background:#fff1d7;color:#56304b;border-radius:12px;margin-top:15px}
 .footer{font-size:12px;color:#c9a9d0;margin-top:40px}
-#shareLink{font-size:13px;overflow-wrap:anywhere;color:#ffdb8a}
+.link{font-size:13px;overflow-wrap:anywhere;color:#ffdb8a}
+label{display:block;text-align:left;color:#ffdf9d;font-size:13px;margin-top:12px}
 </style>
 </head>
-
 <body>
 <canvas id="fireworks"></canvas>
-
 <main class="page">
  <div class="top">✦ FESTIVAL OF LIGHTS ✦</div>
  <div class="diya">🪔</div>
  <h1>Happy Diwali</h1>
- <p class="subtitle">A celebration of light, love, happiness and new beginnings.</p>
+ <p class="message">A celebration of light, love, happiness and new beginnings.</p>
 
  <section id="creator" class="card hidden">
   <h2 class="gold">Create a Special Wish ✨</h2>
-  <p>Enter someone's name and create their personal Diwali greeting.</p>
-  <input id="personName" placeholder="Enter person's name" maxlength="50">
+  <label>Person's Name</label>
+  <input id="personName" placeholder="Whom do you want to wish?" maxlength="50">
+  <label>Your Name</label>
+  <input id="senderName" placeholder="Enter your name" maxlength="50">
+  <label>Your Stylish Signature Text</label>
+  <input id="signatureText" placeholder="e.g. With Love ❤️" maxlength="80">
   <button onclick="createLink()">Create Their Wish 💌</button>
   <div id="linkResult" class="hidden">
    <p class="gold">Your personalized link is ready!</p>
-   <p id="shareLink"></p>
+   <p id="shareLink" class="link"></p>
    <button onclick="copyLink()">Copy Link</button>
-   <button onclick="shareLinkWhatsApp()">Send on WhatsApp</button>
+   <button onclick="shareWhatsApp()">Send on WhatsApp</button>
   </div>
  </section>
 
@@ -97,18 +91,17 @@ button:hover{transform:translateY(-2px)}
    bring a reason to smile. ✨
   </p>
   <h2 class="gold">Shubh Deepavali! ❤️</h2>
-  <p class="gold">With warm wishes,</p>
-  <h3>JAINAM GONDALIYA</h3>
-
+  <p class="small">With warm wishes,</p>
+  <div class="signature" id="signature"></div>
   <button onclick="openLetter()">💌 Open Secret Letter</button>
   <div id="letter" class="letter hidden">
    <h3>Dear <span id="letterName"></span>,</h3>
    <p>On this beautiful festival of lights, I wish you joy, peace,
    laughter and countless wonderful moments. Keep shining and
    always stay happy!</p>
-   <p>With love and best wishes,<br><b>JAINAM GONDALIYA</b></p>
+   <p>With love and best wishes,</p>
+   <b id="letterSignature"></b>
   </div>
-
   <hr style="border-color:#a8795555;margin:25px 0">
   <h3 class="gold">Would you like to wish someone else?</h3>
   <button onclick="showAnother()">YES, Wish Someone 🎁</button>
@@ -117,11 +110,15 @@ button:hover{transform:translateY(-2px)}
 
  <section id="another" class="card hidden">
   <h2 class="gold">Spread More Happiness! ✨</h2>
-  <p>Enter another person's name to create their special wish.</p>
-  <input id="anotherName" placeholder="Enter another name" maxlength="50">
+  <label>Person's Name</label>
+  <input id="anotherName" placeholder="Whom do you want to wish?" maxlength="50">
+  <label>Your Name</label>
+  <input id="anotherSender" placeholder="Enter your name" maxlength="50">
+  <label>Your Stylish Signature Text</label>
+  <input id="anotherSignature" placeholder="e.g. With Love ❤️" maxlength="80">
   <button onclick="createAnother()">Create New Wish 💌</button>
   <div id="anotherResult" class="hidden">
-   <p id="anotherUrl"></p>
+   <p class="link" id="anotherUrl"></p>
    <button onclick="copyAnother()">Copy Link</button>
    <button onclick="whatsappAnother()">WhatsApp Share</button>
   </div>
@@ -131,7 +128,7 @@ button:hover{transform:translateY(-2px)}
   <div class="diya">🪔</div>
   <h2 class="gold">Thank You!</h2>
   <p class="message">Wishing you a bright, beautiful and blessed Diwali!</p>
-  <h3>JAINAM GONDALIYA</h3>
+  <h3>✨ Stay Blessed ✨</h3>
  </section>
 
  <button class="secondary" id="musicBtn" onclick="toggleMusic()">🎵 Music: OFF</button>
@@ -140,159 +137,127 @@ button:hover{transform:translateY(-2px)}
 
 <script>
 const $=id=>document.getElementById(id);
-let generatedUrl="";
-let anotherUrl="";
-let audioContext=null,musicTimer=null,musicOn=false;
+let generatedUrl="",anotherUrl="",audioContext=null,musicTimer=null,musicOn=false;
 
-function cleanName(value){
- return value.trim().replace(/\s+/g," ").slice(0,50);
+function clean(value){
+ return (value||"").trim().replace(/\s+/g," ").slice(0,80);
 }
-
-function makeUrl(name){
+function makeUrl(name,sender,signature){
  const url=new URL(window.location.href);
  url.search="";
  url.hash="";
  url.searchParams.set("to",name);
+ url.searchParams.set("by",sender);
+ url.searchParams.set("sig",signature);
  return url.toString();
 }
-
 function createLink(){
- const name=cleanName($("personName").value);
- if(!name){alert("Please enter a name!");return}
- generatedUrl=makeUrl(name);
+ const name=clean($("personName").value);
+ const sender=clean($("senderName").value);
+ const sig=clean($("signatureText").value);
+ if(!name||!sender||!sig){alert("Please fill all three fields!");return}
+ generatedUrl=makeUrl(name,sender,sig);
  $("shareLink").textContent=generatedUrl;
  $("linkResult").classList.remove("hidden");
 }
-
-function copyLink(){
- if(!generatedUrl)return;
- navigator.clipboard.writeText(generatedUrl)
- .then(()=>alert("Link copied!"))
- .catch(()=>prompt("Copy your link:",generatedUrl));
+function copyText(value){
+ if(navigator.clipboard&&window.isSecureContext){
+  navigator.clipboard.writeText(value).then(()=>alert("Link copied!"))
+  .catch(()=>prompt("Copy your link:",value));
+ }else{prompt("Copy your link:",value)}
 }
-
-function shareLinkWhatsApp(){
- if(generatedUrl){
-  const msg="Happy Diwali! 🪔 Open your special wish: "+generatedUrl;
-  window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank");
- }
+function copyLink(){if(generatedUrl)copyText(generatedUrl)}
+function shareWhatsApp(){
+ if(generatedUrl)window.open("https://wa.me/?text="+encodeURIComponent("Happy Diwali! 🪔 "+generatedUrl),"_blank");
 }
-
-function openLetter(){
- $("letter").classList.toggle("hidden");
-}
-
+function openLetter(){$("letter").classList.toggle("hidden")}
 function showAnother(){
  $("another").classList.remove("hidden");
  $("another").scrollIntoView({behavior:"smooth"});
 }
-
 function createAnother(){
- const name=cleanName($("anotherName").value);
- if(!name){alert("Please enter a name!");return}
- anotherUrl=makeUrl(name);
+ const name=clean($("anotherName").value);
+ const sender=clean($("anotherSender").value);
+ const sig=clean($("anotherSignature").value);
+ if(!name||!sender||!sig){alert("Please fill all three fields!");return}
+ anotherUrl=makeUrl(name,sender,sig);
  $("anotherUrl").textContent=anotherUrl;
  $("anotherResult").classList.remove("hidden");
 }
-
-function copyAnother(){
- navigator.clipboard.writeText(anotherUrl)
- .then(()=>alert("Link copied!"))
- .catch(()=>prompt("Copy your link:",anotherUrl));
-}
-
+function copyAnother(){if(anotherUrl)copyText(anotherUrl)}
 function whatsappAnother(){
- if(anotherUrl){
-  window.open("https://wa.me/?text="+encodeURIComponent(
-   "Happy Diwali! 🪔 Here is your special wish: "+anotherUrl
-  ),"_blank");
- }
+ if(anotherUrl)window.open("https://wa.me/?text="+encodeURIComponent("Happy Diwali! 🪔 "+anotherUrl),"_blank");
 }
-
 function thankYou(){
  $("thanks").classList.remove("hidden");
  $("thanks").scrollIntoView({behavior:"smooth"});
 }
-
 function toggleMusic(){
  if(musicOn){
-  clearInterval(musicTimer);
-  musicOn=false;
-  $("musicBtn").textContent="🎵 Music: OFF";
-  return;
+  clearInterval(musicTimer);musicOn=false;
+  $("musicBtn").textContent="🎵 Music: OFF";return;
  }
  const AudioCtx=window.AudioContext||window.webkitAudioContext;
- if(!AudioCtx){alert("Audio is not supported in this browser.");return}
+ if(!AudioCtx){alert("Audio not supported");return}
  audioContext=audioContext||new AudioCtx();
- audioContext.resume();
- musicOn=true;
+ audioContext.resume();musicOn=true;
  $("musicBtn").textContent="🎵 Music: ON";
- const notes=[523.25,659.25,783.99,659.25];
- let i=0;
+ const notes=[523.25,659.25,783.99,659.25];let i=0;
  function bell(){
   if(!musicOn)return;
-  const osc=audioContext.createOscillator();
-  const gain=audioContext.createGain();
-  osc.type="sine";
-  osc.frequency.value=notes[i++%notes.length];
-  gain.gain.setValueAtTime(0.0001,audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(.07,audioContext.currentTime+.03);
+  const osc=audioContext.createOscillator(),gain=audioContext.createGain();
+  osc.type="sine";osc.frequency.value=notes[i++%notes.length];
+  gain.gain.setValueAtTime(.0001,audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.06,audioContext.currentTime+.03);
   gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+.7);
   osc.connect(gain);gain.connect(audioContext.destination);
   osc.start();osc.stop(audioContext.currentTime+.75);
  }
- bell();
- musicTimer=setInterval(bell,850);
+ bell();musicTimer=setInterval(bell,850);
 }
 
-const params=new URLSearchParams(window.location.search);
-const recipient=cleanName(params.get("to")||"");
+const params=new URLSearchParams(location.search);
+const recipient=clean(params.get("to"));
+const sender=clean(params.get("by"));
+const sig=clean(params.get("sig"));
 
 if(recipient){
  $("greeting").classList.remove("hidden");
  $("receiver").textContent=recipient;
  $("letterName").textContent=recipient;
+ const displaySignature=sig||("With Love, "+(sender||"A Friend")+" ❤️");
+ $("signature").textContent=displaySignature;
+ $("letterSignature").textContent=displaySignature;
  document.title="Happy Diwali, "+recipient+"!";
 }else{
  $("creator").classList.remove("hidden");
 }
-
-// Fireworks animation
-const canvas=$("fireworks");
-const ctx=canvas.getContext("2d");
+ 
+// Fireworks
+const canvas=$("fireworks"),ctx=canvas.getContext("2d");
 let particles=[];
 function resize(){
- canvas.width=window.innerWidth*devicePixelRatio;
- canvas.height=window.innerHeight*devicePixelRatio;
+ canvas.width=innerWidth*devicePixelRatio;
+ canvas.height=innerHeight*devicePixelRatio;
  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
 }
-window.addEventListener("resize",resize);
-resize();
-
+addEventListener("resize",resize);resize();
 function burst(){
- const x=Math.random()*window.innerWidth;
- const y=50+Math.random()*window.innerHeight*.55;
+ const x=Math.random()*innerWidth,y=50+Math.random()*innerHeight*.55;
  const hue=Math.random()*360;
  for(let i=0;i<38;i++){
-  const angle=Math.PI*2*i/38;
-  const speed=1+Math.random()*3;
-  particles.push({
-   x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,
-   life:55+Math.random()*25,hue
-  });
+  const a=Math.PI*2*i/38,s=1+Math.random()*3;
+  particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:65,hue});
  }
 }
 setInterval(burst,1100);
-
 function animate(){
- ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+ ctx.clearRect(0,0,innerWidth,innerHeight);
  particles=particles.filter(p=>p.life>0);
  for(const p of particles){
   p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.life--;
-  ctx.beginPath();
-  ctx.arc(p.x,p.y,2,0,Math.PI*2);
-  ctx.fillStyle=`hsla(${p.hue},100%,70%,${p.life/80})`;
-  ctx.fill();
+  ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);
+  ctx.fillStyle=`hsla(${p.hue},100%,70%,${p.life/80})`;ctx.fill();
  }
  requestAnimationFrame(animate);
 }
